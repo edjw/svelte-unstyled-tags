@@ -19,6 +19,7 @@
 	// Let user provide classes for external styling
 	export let componentWrapperClasses: string = '';
 	export let allTagsWrapperClasses: string = '';
+	export let tagsInputWrapperClasses: string = '';
 	export let tagWrapperClasses: string = '';
 	export let tagClasses: string = '';
 	export let labelClasses: string = '';
@@ -65,7 +66,7 @@
 		{labelText}
 	</label>
 
-	<div class="tagsInputWrapper">
+	<div class={`tagsInputWrapper ${tagsInputWrapperClasses}`}>
 		<div id="allTagsWrapper" class={allTagsWrapperClasses} role="list">
 			{#each tags as tag, index}
 				<div
