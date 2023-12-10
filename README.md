@@ -1,58 +1,130 @@
-# create-svelte
+# Svelte Unstyled Tags
 
-Everything you need to build a Svelte library, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Svelte Unstyled Tags is a customisable Tags Input Component for Svelte.
 
-Read more about creating a library [in the docs](https://kit.svelte.dev/docs/packaging).
+It is in development and things might change.
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+## Installation
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+npm install svelte-unstyled-tags
+yarn add svelte-unstyled-tags
+pnpm add svelte-unstyled-tags
 ```
 
-## Developing
+Import it in your Svelte component like this:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```javascript
+import TagsInput from 'svelte-unstyled-tags';
 ```
 
-Everything inside `src/lib` is part of your library, everything inside `src/routes` can be used as a showcase or preview app.
+## Usage
 
-## Building
+Use the component in your Svelte files:
 
-To build your library:
+```svelte
+<script>
+    let tags = [];
+</script>
 
-```bash
-npm run package
+<TagsInput bind:tags={tags} inputPlaceholderText="Enter tag name"/>
 ```
 
-To create a production version of your showcase app:
+You can pass tags array to component with `bind:tags` and pass your configuration through props.
 
-```bash
-npm run build
+## Options
+
+The following are the customisable options that come with the package:
+
+| Parameter                 | Type             | Description                                 | Default     |
+| ------------------------- | ---------------- | ------------------------------------------- | ----------- |
+| `tags`                    | array of strings | The array to store the tag values           | [ ]         |
+| `inputPlaceholderText`    | string           | Placeholder text for the tag input field    | 'Add a tag' |
+| `removeTagButtonText`     | string           | Text for the tag remove button              | 'x'         |
+| `addTagKey`               | string           | The key that triggers the addition of a tag | 'Enter'     |
+| `showAddButton`           | boolean          | Show an add button                          | false       |
+| `addButtonText`           | string           | Text for the add button                     | 'Add Tag'   |
+| `showClearAllButton`      | boolean          | Show a clear all button                     | false       |
+| `showClearAllText`        | string           | Text for the clear all button               | 'Clear all' |
+| `onlyUnique`              | boolean          | Only allow unique tags                      | false       |
+| `showLabel`               | boolean          | Show label for the input                    | false       |
+| `labelText`               | string           | Text for the label                          | 'Tags'      |
+| `maximumTags`             | number           | Maximum number of tags                      | Infinity    |
+| `id`                      | string           | Custom ID for the input                     | 'tagsInput' |
+| `componentWrapperClasses` | string           | CSS Classes for component wrapper           | ''          |
+| `allTagsWrapperClasses`   | string           | CSS Classes for all tags wrapper            | ''          |
+| `tagWrapperClasses`       | string           | CSS Classes for each tag wrapper            | ''          |
+| `tagClasses`              | string           | CSS Classes for each tag                    | ''          |
+| `labelClasses`            | string           | CSS Classes for label                       | ''          |
+| `tagRemoveButtonClasses`  | string           | CSS Classes for the tag remove button       | ''          |
+| `inputClasses`            | string           | CSS Classes for the input                   | ''          |
+| `addButtonClasses`        | string           | CSS Classes for the add button              | ''          |
+| `clearAllButtonClasses`   | string           | CSS Classes for the clear all button        | ''          |
+
+## Listen for changes to tags
+
+This component dispatches a 'input' event whenever the tags array changes. You can listen for it like this:
+
+```svelte
+<TagsInput bind:tags={tags} on:input="{event => console.log(event.detail)}"/>
 ```
 
-You can preview the production build with `npm run preview`.
+This will log the new tags array whenever it changes.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Example HTML
 
-## Publishing
+This is an example of the HTML markup that's created.
 
-Go into the `package.json` and give your package the desired name through the `"name"` option. Also consider adding a `"license"` field and point it to a `LICENSE` file which you can create from a template (one popular option is the [MIT license](https://opensource.org/license/mit/)).
+```html
+<div id="svelteTagsComponentWrapper">
+	<label
+		for="tagsInput"
+		class="screen-reader-only"
+		>Tags</label
+	>
+	<div class="tagsInputWrapper">
+		<div
+			id="allTagsWrapper"
+			role="list"
+		>
+			<div
+				class="tagWrapper"
+				role="listitem"
+				data-tag="tag"
+				data-index="0"
+			>
+				<span
+					class="tag"
+					id="tag-0"
+					>tag</span
+				>
+				<button class="tagRemoveButton">x</button>
+			</div>
+			<div
+				class="tagWrapper"
+				role="listitem"
+				data-tag="tag2"
+				data-index="1"
+			>
+				<span
+					class="tag"
+					id="tag2-1"
+					>tag2</span
+				>
+				<button class="tagRemoveButton">x</button>
+			</div>
+		</div>
+		<input
+			id="tagsInput"
+			type="text"
+			placeholder="Add a tag…"
+		/>
+		<button>Add Tag</button>
+	</div>
+</div>
 
-To publish your library to [npm](https://www.npmjs.com):
-
-```bash
-npm publish
 ```
+
+## Licence
+
+MIT
