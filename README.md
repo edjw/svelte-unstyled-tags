@@ -32,82 +32,7 @@ Use the component in your Svelte files:
 
 You can pass tags array to component with `bind:tags` and pass your configuration through props.
 
-## Examples
-
-### Styling with Tailwind classes
-
-Here's an example of how you might style the various parts of the component using Tailwind classes.
-
-```svelte
-<Tags
-    bind:tags
-    componentWrapperClasses="flex flex-wrap"
-    allTagsWrapperClasses="flex flex-row items-center gap-x-2 flex-wrap"
-    tagsInputWrapperClasses="flex items-center border-2 border-gray-200 py-2 px-3 rounded-md mt-2"
-    tagWrapperClasses="flex items-center justify-between bg-blue-500 text-white px-2 py-1.5 rounded-md min-w-[5rem]"
-    tagClasses="pr-4"
-    tagRemoveButtonClasses="cursor-pointer rounded px-2 hover:outline"
-    inputClasses="ml-4 px-2 py-2 border-b"
-/>
-```
-
-### Styling with vanilla CSS
-
-```svelte
-<Tags bind:tags />
-
-<!-- You can also put these classes in a `.css` file if you don't want to use these `:global()` modifiers -->
-<style>
-	:global(#svelteUnstyledTagsWrapper) {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	:global(.tagsInputWrapper) {
-		display: flex;
-		align-items: center;
-		border: 2px solid #e5e7eb;
-		padding: 0.5rem 0.75rem;
-		border-radius: 0.375rem;
-		margin-top: 0.5rem;
-	}
-	:global(#allTagsWrapper) {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		column-gap: 0.5rem;
-		flex-wrap: wrap;
-	}
-	:global(.tagWrapper) {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		background-color: #3b82f6;
-		color: #ffffff;
-		padding: 0.375rem 0.5rem;
-		border-radius: 0.375rem;
-		min-width: 5rem;
-	}
-	:global(.tag) {
-		padding-right: 1rem;
-	}
-	:global(.tagRemoveButton) {
-		cursor: pointer;
-		border-radius: 0.125rem;
-		padding: 0 0.5rem;
-	}
-	:global(.tagRemoveButton:hover) {
-		outline: 2px auto;
-	}
-	:global(#tagsInput) {
-		margin-left: 1rem;
-		padding: 0.5rem;
-		border-bottom: 1px solid #e5e7eb;
-	}
-</style>
-
-```
-
-## Options
+## Configuration Options
 
 The following are the customisable options that come with the package:
 
@@ -145,6 +70,86 @@ This component dispatches a 'input' event whenever the tags array changes. You c
 ```
 
 This will log the new tags array whenever it changes.
+
+## Examples
+
+Code examples below to make the component look like this:
+![A screenshot of how the examples below look](example.png)
+
+### Styling with Tailwind classes
+
+Here's an example of how you might style the various parts of the component using Tailwind classes.
+
+```svelte
+<Tags
+    bind:tags
+    componentWrapperClasses="flex flex-wrap"
+    allTagsWrapperClasses="flex flex-row items-center gap-x-2 gap-y-2 flex-wrap"
+    tagsInputWrapperClasses="flex items-center border-2 border-gray-200 py-2 px-3 rounded-md mt-2"
+    tagWrapperClasses="flex items-center justify-between bg-blue-500 text-white px-2 py-1.5 rounded-md min-w-[5rem]"
+    tagClasses="pr-4"
+    tagRemoveButtonClasses="cursor-pointer rounded px-2 hover:outline"
+    inputClasses="ml-4 px-2 py-2 border-b"
+/>
+```
+
+### Styling with vanilla CSS
+You can also put these classes in your global `.css` file if you don't want to use these `:global()` modifiers
+```svelte
+<Tags bind:tags />
+
+
+<style>
+	:global(#svelteUnstyledTagsWrapper) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	:global(.tagsInputWrapper) {
+		display: flex;
+		align-items: center;
+		border: 2px solid #e5e7eb;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.375rem;
+		margin-top: 0.5rem;
+	}
+	:global(#allTagsWrapper) {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		column-gap: 0.5rem;
+		row-gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+	:global(.tagWrapper) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #3b82f6;
+		color: #ffffff;
+		padding: 0.375rem 0.5rem;
+		border-radius: 0.375rem;
+		min-width: 5rem;
+	}
+	:global(.tag) {
+		padding-right: 1rem;
+	}
+	:global(.tagRemoveButton) {
+		cursor: pointer;
+		border-radius: 0.125rem;
+		padding: 0 0.5rem;
+	}
+	:global(.tagRemoveButton:hover) {
+		outline: 2px auto;
+	}
+	:global(#tagsInput) {
+		margin-left: 1rem;
+		padding: 0.5rem;
+		border-bottom: 1px solid #e5e7eb;
+	}
+</style>
+
+```
+
 
 ## Example HTML output
 
