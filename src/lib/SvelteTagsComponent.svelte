@@ -3,7 +3,7 @@
 
 	// Parameters
 	export let inputPlaceholderText: string = 'Add a tag';
-	export let removeTagButtonText: string = 'x';
+	export let removeTagButtonText: string = '✕';
 	export let addTagKey: string = 'Enter';
 	export let showAddButton: boolean = false;
 	export let addButtonText: string = 'Add Tag';
