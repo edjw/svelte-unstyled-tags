@@ -51,6 +51,62 @@ Here's an example of how you might style the various parts of the component usin
 />
 ```
 
+### Styling with vanilla CSS
+
+```svelte
+<Tags bind:tags />
+
+<!-- You can also put these classes in a `.css` file if you don't want to use these `:global()` modifiers -->
+<style>
+	:global(#svelteTagsComponentWrapper) {
+		display: flex;
+		flex-wrap: wrap;
+	}
+	:global(.tagsInputWrapper) {
+		display: flex;
+		align-items: center;
+		border: 2px solid #e5e7eb;
+		padding: 0.5rem 0.75rem;
+		border-radius: 0.375rem;
+		margin-top: 0.5rem;
+	}
+	:global(#allTagsWrapper) {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		column-gap: 0.5rem;
+		flex-wrap: wrap;
+	}
+	:global(.tagWrapper) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: #3b82f6;
+		color: #ffffff;
+		padding: 0.375rem 0.5rem;
+		border-radius: 0.375rem;
+		min-width: 5rem;
+	}
+	:global(.tag) {
+		padding-right: 1rem;
+	}
+	:global(.tagRemoveButton) {
+		cursor: pointer;
+		border-radius: 0.125rem;
+		padding: 0 0.5rem;
+	}
+	:global(.tagRemoveButton:hover) {
+		outline: 2px auto;
+	}
+	:global(#tagsInput) {
+		margin-left: 1rem;
+		padding: 0.5rem;
+		border-bottom: 1px solid #e5e7eb;
+	}
+</style>
+
+```
+
 ## Options
 
 The following are the customisable options that come with the package:
@@ -90,7 +146,7 @@ This component dispatches a 'input' event whenever the tags array changes. You c
 
 This will log the new tags array whenever it changes.
 
-## Example HTML
+## Example HTML output
 
 This is an example of the HTML markup that's created.
 
@@ -109,36 +165,35 @@ This is an example of the HTML markup that's created.
 			<div
 				class="tagWrapper"
 				role="listitem"
-				data-tag="tag"
+				data-tag="hi"
 				data-index="0"
 			>
 				<span
 					class="tag"
-					id="tag-0"
-					>tag</span
+					id="hi-0"
+					>hi</span
 				>
-				<button class="tagRemoveButton">x</button>
+				<button class="tagRemoveButton">✕</button>
 			</div>
 			<div
 				class="tagWrapper"
 				role="listitem"
-				data-tag="tag2"
+				data-tag="there"
 				data-index="1"
 			>
 				<span
 					class="tag"
-					id="tag2-1"
-					>tag2</span
+					id="there-1"
+					>there</span
 				>
-				<button class="tagRemoveButton">x</button>
+				<button class="tagRemoveButton">✕</button>
 			</div>
 		</div>
 		<input
 			id="tagsInput"
 			type="text"
-			placeholder="Add a tag…"
+			placeholder="Add a tag"
 		/>
-		<button>Add Tag</button>
 	</div>
 </div>
 
