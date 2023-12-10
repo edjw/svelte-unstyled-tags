@@ -86,7 +86,7 @@
 
 		<input
 			{id}
-			class={inputClasses}
+			class={`tagInput ${inputClasses}`}
 			bind:value={inputValue}
 			on:keydown={addTagFromInput}
 			type="text"
@@ -94,7 +94,7 @@
 		/>
 		{#if showAddButton}
 			<button
-				class={addButtonClasses}
+				class={`addButton ${addButtonClasses}`}
 				on:click={() => {
 					addTag(inputValue);
 					inputValue = '';
@@ -106,7 +106,7 @@
 
 		{#if showClearAllButton}
 			<button
-				class={clearAllButtonClasses}
+				class={`clearAllButton ${clearAllButtonClasses}`}
 				on:click={() => {
 					removeAllTags();
 				}}
