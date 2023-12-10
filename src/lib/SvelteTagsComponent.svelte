@@ -117,20 +117,6 @@
 </div>
 
 <style>
-	#allTagsWrapper {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		column-gap: 1rem;
-	}
-
-	.tagWrapper {
-		display: flex;
-		column-gap: 1rem;
-		flex-wrap: nowrap;
-		border: 1px solid black;
-	}
-
 	.screen-reader-only {
 		position: absolute;
 		width: 1px;
