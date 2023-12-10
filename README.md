@@ -32,6 +32,25 @@ Use the component in your Svelte files:
 
 You can pass tags array to component with `bind:tags` and pass your configuration through props.
 
+## Examples
+
+### Styling with Tailwind classes
+
+Here's an example of how you might style the various parts of the component using Tailwind classes.
+
+```svelte
+<Tags
+    bind:tags
+    componentWrapperClasses="flex flex-wrap"
+    allTagsWrapperClasses="flex flex-row items-center gap-x-2 flex-wrap"
+    tagsInputWrapperClasses="flex items-center border-2 border-gray-200 py-2 px-3 rounded-md mt-2"
+    tagWrapperClasses="flex items-center justify-between bg-blue-500 text-white px-2 py-1.5 rounded-md min-w-[5rem]"
+    tagClasses="pr-4"
+    tagRemoveButtonClasses="cursor-pointer rounded px-2 hover:outline"
+    inputClasses="ml-4 px-2 py-2 border-b"
+/>
+```
+
 ## Options
 
 The following are the customisable options that come with the package:
