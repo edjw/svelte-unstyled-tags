@@ -58,7 +58,7 @@ Here's an example of how you might style the various parts of the component usin
 
 <!-- You can also put these classes in a `.css` file if you don't want to use these `:global()` modifiers -->
 <style>
-	:global(#svelteTagsComponentWrapper) {
+	:global(#svelteUnstyledTagsWrapper) {
 		display: flex;
 		flex-wrap: wrap;
 	}
@@ -151,7 +151,7 @@ This will log the new tags array whenever it changes.
 This is an example of the HTML markup that's created.
 
 ```html
-<div id="svelteTagsComponentWrapper">
+<div id="svelteUnstyledTagsWrapper">
 	<label
 		for="tagsInput"
 		class="screen-reader-only"

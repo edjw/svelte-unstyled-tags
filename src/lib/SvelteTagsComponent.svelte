@@ -60,7 +60,7 @@
 	}
 </script>
 
-<div id="svelteTagsComponentWrapper" class={componentWrapperClasses}>
+<div id="svelteUnstyledTagsWrapper" class={componentWrapperClasses}>
 	<label
 		for="tagsInput"
 		class={showLabel ? `${labelClasses}` : `${labelClasses} screen-reader-only`}
