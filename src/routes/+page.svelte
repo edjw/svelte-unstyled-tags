@@ -1,3 +1,31 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Tags from '$lib/index.js';
+
+	// let tags: string[] = [];
+
+	let tags: string[] = [
+		'tagOne01',
+		'tagTwo02',
+		'tagThree'
+		// 'tagFour4',
+		// 'tagFive5',
+		// 'tagSix066',
+		// 'tagSeven',
+		// 'tagEight',
+		// 'tagNine9',
+		// 'tagTen10',
+		// 'tagEleve',
+		// 'tagTwelv',
+		// 'tagTen10',
+		// 'tagEleve',
+		// 'tagTwelv',
+		// 'tagTen10',
+		// 'tagEleve',
+		// 'tagTwelv',
+		// 'tagTen10',
+		// 'tagEleve',
+		// 'tagTwelv'
+	];
+</script>
+
+<Tags bind:tags />

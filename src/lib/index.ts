@@ -1,1 +1,3 @@
-// Reexport your entry components here
+import Tags from './SvelteTagsComponent.svelte';
+
+export default Tags;

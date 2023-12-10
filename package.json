@@ -1,5 +1,5 @@
 {
-	"name": "svelte-tags-component",
+	"name": "svelte-unstyled-tags",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
