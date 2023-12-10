@@ -2,13 +2,12 @@
 	import { createEventDispatcher } from 'svelte';
 
 	// Parameters
-	export let inputPlaceholderText: string = 'Add a tag…';
+	export let inputPlaceholderText: string = 'Add a tag';
 	export let removeTagButtonText: string = 'x';
-	// https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
 	export let addTagKey: string = 'Enter';
-	export let showAddButton: boolean = true;
+	export let showAddButton: boolean = false;
 	export let addButtonText: string = 'Add Tag';
-	export let showClearAllButton: boolean = true;
+	export let showClearAllButton: boolean = false;
 	export let showClearAllText: string = 'Clear all';
 
 	export let onlyUnique: boolean = false;
