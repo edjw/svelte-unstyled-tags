@@ -14,7 +14,6 @@
 	export let showLabel: boolean = false;
 	export let labelText: string = 'Tags';
 	export let maximumTags: number = Infinity;
-	export let id: string = 'tagsInput';
 
 	// Let user provide classes for external styling
 	export let componentWrapperClasses: string = '';
@@ -62,7 +61,10 @@
 </script>
 
 <div id="svelteTagsComponentWrapper" class={componentWrapperClasses}>
-	<label for={id} class={showLabel ? `${labelClasses}` : `${labelClasses} screen-reader-only`}>
+	<label
+		for="tagsInput"
+		class={showLabel ? `${labelClasses}` : `${labelClasses} screen-reader-only`}
+	>
 		{labelText}
 	</label>
 
@@ -85,8 +87,8 @@
 		</div>
 
 		<input
-			{id}
-			class={`tagInput ${inputClasses}`}
+			id="tagsInput"
+			class={inputClasses}
 			bind:value={inputValue}
 			on:keydown={addTagFromInput}
 			type="text"
@@ -94,7 +96,8 @@
 		/>
 		{#if showAddButton}
 			<button
-				class={`addButton ${addButtonClasses}`}
+				id="addTagButton"
+				class={addButtonClasses}
 				on:click={() => {
 					addTag(inputValue);
 					inputValue = '';
@@ -106,7 +109,8 @@
 
 		{#if showClearAllButton}
 			<button
-				class={`clearAllButton ${clearAllButtonClasses}`}
+				id="clearAllTagsButton"
+				class={clearAllButtonClasses}
 				on:click={() => {
 					removeAllTags();
 				}}
