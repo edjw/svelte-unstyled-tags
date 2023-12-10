@@ -74,7 +74,7 @@ This will log the new tags array whenever it changes.
 ## Examples
 
 Code examples below to make the component look like this:
-![A screenshot of how the examples below look](example.png)
+![A screenshot of how the examples below look](https://raw.githubusercontent.com/edjw/svelte-unstyled-tags/main/example.png)
 
 ### Styling with Tailwind classes
 
