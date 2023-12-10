@@ -2,7 +2,7 @@
 
 Svelte Unstyled Tags is a customisable Tags Input Component for Svelte.
 
-It is in development and things might change.
+It is in development and things might change like class names.
 
 ## Installation
 
@@ -27,7 +27,7 @@ Use the component in your Svelte files:
     let tags = [];
 </script>
 
-<TagsInput bind:tags={tags} inputPlaceholderText="Enter tag name"/>
+<TagsInput bind:tags={tags} />
 ```
 
 You can pass tags array to component with `bind:tags` and pass your configuration through props.
@@ -52,11 +52,11 @@ The following are the customisable options that come with the package:
 | `maximumTags`             | number           | Maximum number of tags                      | Infinity    |
 | `id`                      | string           | Custom ID for the input                     | 'tagsInput' |
 | `componentWrapperClasses` | string           | CSS Classes for component wrapper           | ''          |
-| `allTagsWrapperClasses`   | string           | CSS Classes for all tags wrapper            | ''          |
+| `allTagsWrapperClasses`   | string           | CSS Classes for the 'all tags' wrapper      | ''          |
 | `tagWrapperClasses`       | string           | CSS Classes for each tag wrapper            | ''          |
 | `tagClasses`              | string           | CSS Classes for each tag                    | ''          |
 | `labelClasses`            | string           | CSS Classes for label                       | ''          |
-| `tagRemoveButtonClasses`  | string           | CSS Classes for the tag remove button       | ''          |
+| `tagRemoveButtonClasses`  | string           | CSS Classes for the tag remove buttons      | ''          |
 | `inputClasses`            | string           | CSS Classes for the input                   | ''          |
 | `addButtonClasses`        | string           | CSS Classes for the add button              | ''          |
 | `clearAllButtonClasses`   | string           | CSS Classes for the clear all button        | ''          |
