@@ -5,4 +5,3 @@
 </script>
 
 <Tags bind:tags />
-<Tags bind:tags />

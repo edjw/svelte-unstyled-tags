@@ -36,29 +36,31 @@ You can pass tags array to component with `bind:tags` and pass your configuratio
 
 The following are the customisable options that come with the package:
 
-| Parameter                 | Type             | Description                                 | Default     |
-| ------------------------- | ---------------- | ------------------------------------------- | ----------- |
-| `tags`                    | array of strings | The array to store the tag values           | [ ]         |
-| `inputPlaceholderText`    | string           | Placeholder text for the tag input field    | 'Add a tag' |
-| `removeTagButtonText`     | string           | Text for the tag remove button              | 'x'         |
-| `addTagKey`               | string           | The key that triggers the addition of a tag | 'Enter'     |
-| `showAddButton`           | boolean          | Show an add button                          | false       |
-| `addButtonText`           | string           | Text for the add button                     | 'Add Tag'   |
-| `showClearAllButton`      | boolean          | Show a clear all button                     | false       |
-| `showClearAllText`        | string           | Text for the clear all button               | 'Clear all' |
-| `onlyUnique`              | boolean          | Only allow unique tags                      | false       |
-| `showLabel`               | boolean          | Show label for the input                    | false       |
-| `labelText`               | string           | Text for the label                          | 'Tags'      |
-| `maximumTags`             | number           | Maximum number of tags                      | Infinity    |
-| `componentWrapperClasses` | string           | CSS Classes for component wrapper           | ''          |
-| `allTagsWrapperClasses`   | string           | CSS Classes for the 'all tags' wrapper      | ''          |
-| `tagWrapperClasses`       | string           | CSS Classes for each tag wrapper            | ''          |
-| `tagClasses`              | string           | CSS Classes for each tag                    | ''          |
-| `labelClasses`            | string           | CSS Classes for label                       | ''          |
-| `tagRemoveButtonClasses`  | string           | CSS Classes for the tag remove buttons      | ''          |
-| `inputClasses`            | string           | CSS Classes for the input                   | ''          |
-| `addButtonClasses`        | string           | CSS Classes for the add button              | ''          |
-| `clearAllButtonClasses`   | string           | CSS Classes for the clear all button        | ''          |
+| Parameter                    | Type             | Description                                          | Default     |
+| ---------------------------- | ---------------- | ---------------------------------------------------- | ----------- |
+| `tags`                       | array of strings | The array to store the tag values                    | [ ]         |
+| `maximumTags`                | number           | Maximum number of tags                               | Infinity    |
+| `onlyUnique`                 | boolean          | Only allow unique tags                               | false       |
+| `inputPlaceholderText`       | string           | Placeholder text for the tag input field             | 'Add a tag' |
+| `addTagKey`                  | string           | The keyboard key that triggers the addition of a tag | 'Enter'     |
+| `showLabel`                  | boolean          | Show label for the input                             | false       |
+| `labelText`                  | string           | Text for the label                                   | 'Tags'      |
+| `showAddButton`              | boolean          | Show an add button                                   | false       |
+| `addButtonText`              | string           | Text for the add button                              | 'Add Tag'   |
+| `showClearAllButton`         | boolean          | Show a clear all button                              | false       |
+| `showClearAllButtonText`     | string           | Text for the clear all button                        | 'Clear all' |
+| `removeTagButtonText`        | string           | Text for the tag remove button                       | 'x'         |
+| `componentWrapperClasses`    | string           | CSS Classes for component wrapper                    | ''          |
+| `allTagsWrapperClasses`      | string           | CSS Classes for the 'all tags' wrapper               | ''          |
+| `tagWrapperClasses`          | string           | CSS Classes for each tag wrapper                     | ''          |
+| `tagClasses`                 | string           | CSS Classes for each tag                             | ''          |
+| `inputClasses`               | string           | CSS Classes for the input                            | ''          |
+| `inputButtonsSectionClasses` | string           | CSS Classes for the input buttons section            | ''          |
+| `labelClasses`               | string           | CSS Classes for label                                | ''          |
+| `removeTagButtonClasses`     | string           | CSS Classes for the tag remove buttons               | ''          |
+| `addButtonClasses`           | string           | CSS Classes for the add button                       | ''          |
+| `clearAllButtonClasses`      | string           | CSS Classes for the clear all button                 | ''          |
+| `buttonsSectionClasses`      | string           | CSS Classes for the buttons section                  | ''          |
 
 ## Listen for changes to tags
 
@@ -157,10 +159,10 @@ This is an example of the HTML markup that's created.
 ```html
 <div
 	class="svelteUnstyledTagsWrapper"
-	id="greqxjp6z4"
+	id="fyz9g1k7rplq0rl3c8"
 >
 	<label
-		for="tagsInput-greqxjp6z4"
+		for="tagsInput-fyz9g1k7rplq0rl3c8"
 		class="screen-reader-only"
 		>Tags</label
 	>
@@ -178,10 +180,9 @@ This is an example of the HTML markup that's created.
 				<span
 					class="tag"
 					data-tag-id="tag-0"
+					>tag</span
 				>
-					tag
-				</span>
-				<button class="tagRemoveButton">✕</button>
+				<button class="removeTagButton">✕</button>
 			</div>
 			<div
 				class="tagWrapper"
@@ -194,7 +195,7 @@ This is an example of the HTML markup that's created.
 					data-tag-id="another tag-1"
 					>another tag</span
 				>
-				<button class="tagRemoveButton">✕</button>
+				<button class="removeTagButton">✕</button>
 			</div>
 			<div
 				class="tagWrapper"
@@ -207,18 +208,19 @@ This is an example of the HTML markup that's created.
 					data-tag-id="and another-2"
 					>and another</span
 				>
-				<button class="tagRemoveButton">✕</button>
+				<button class="removeTagButton">✕</button>
 			</div>
 		</div>
-		<input
-			id="tagsInput-greqxjp6z4"
-			class="tagsInput"
-			type="text"
-			placeholder="Add a tag"
-		/>
+		<div class="inputButtonsSection">
+			<input
+				id="tagsInput-fyz9g1k7rplq0rl3c8"
+				class="tagsInput"
+				type="text"
+				placeholder="Add a tag"
+			/>
+		</div>
 	</div>
 </div>
-
 
 ```
 

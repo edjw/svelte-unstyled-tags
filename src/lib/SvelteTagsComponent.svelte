@@ -8,7 +8,7 @@
 	export let showAddButton: boolean = false;
 	export let addButtonText: string = 'Add Tag';
 	export let showClearAllButton: boolean = false;
-	export let showClearAllText: string = 'Clear all';
+	export let showClearAllButtonText: string = 'Clear all';
 
 	export let onlyUnique: boolean = false;
 	export let showLabel: boolean = false;
@@ -22,10 +22,12 @@
 	export let tagWrapperClasses: string = '';
 	export let tagClasses: string = '';
 	export let labelClasses: string = '';
-	export let tagRemoveButtonClasses: string = '';
+	export let removeTagButtonClasses: string = '';
 	export let inputClasses: string = '';
 	export let addButtonClasses: string = '';
 	export let clearAllButtonClasses: string = '';
+	export let inputButtonsSectionClasses: string = '';
+	export let buttonsSectionClasses: string = '';
 
 	let inputValue: string = '';
 
@@ -86,43 +88,47 @@
 				>
 					<span class={`tag ${tagClasses}`} data-tag-id={`${tag}-${index}`}>{tag}</span>
 					<button
-						class={`tagRemoveButton ${tagRemoveButtonClasses}`}
+						class={`removeTagButton ${removeTagButtonClasses}`}
 						on:click={() => removeTag(index)}>{removeTagButtonText}</button
 					>
 				</div>
 			{/each}
 		</div>
-
-		<input
-			id={`tagsInput-${id}`}
-			class={`tagsInput ${inputClasses}`}
-			bind:value={inputValue}
-			on:keydown={addTagFromInput}
-			type="text"
-			placeholder={inputPlaceholderText}
-		/>
-		{#if showAddButton}
-			<button
-				class={`addTagButton ${addButtonClasses}`}
-				on:click={() => {
-					addTag(inputValue);
-					inputValue = '';
-				}}
-			>
-				{addButtonText}
-			</button>
-		{/if}
-
-		{#if showClearAllButton}
-			<button
-				class={`clearAllTagsButton ${clearAllButtonClasses}`}
-				on:click={() => {
-					removeAllTags();
-				}}
-			>
-				{showClearAllText}
-			</button>
-		{/if}
+		<div class={`inputButtonsSection ${inputButtonsSectionClasses}`}>
+			<input
+				id={`tagsInput-${id}`}
+				class={`tagsInput ${inputClasses}`}
+				bind:value={inputValue}
+				on:keydown={addTagFromInput}
+				type="text"
+				placeholder={inputPlaceholderText}
+			/>
+			{#if showAddButton || showClearAllButton}
+				<div class={`buttonsSection ${buttonsSectionClasses}`}>
+					{#if showAddButton}
+						<button
+							class={`addTagButton ${addButtonClasses}`}
+							on:click={() => {
+								addTag(inputValue);
+								inputValue = '';
+							}}
+						>
+							{addButtonText}
+						</button>
+					{/if}
+					{#if showClearAllButton}
+						<button
+							class={`clearAllTagsButton ${clearAllButtonClasses}`}
+							on:click={() => {
+								removeAllTags();
+							}}
+						>
+							{showClearAllButtonText}
+						</button>
+					{/if}
+				</div>
+			{/if}
+		</div>
 	</div>
 </div>
 
