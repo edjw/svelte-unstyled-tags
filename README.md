@@ -50,7 +50,6 @@ The following are the customisable options that come with the package:
 | `showLabel`               | boolean          | Show label for the input                    | false       |
 | `labelText`               | string           | Text for the label                          | 'Tags'      |
 | `maximumTags`             | number           | Maximum number of tags                      | Infinity    |
-| `id`                      | string           | Custom ID for the input                     | 'tagsInput' |
 | `componentWrapperClasses` | string           | CSS Classes for component wrapper           | ''          |
 | `allTagsWrapperClasses`   | string           | CSS Classes for the 'all tags' wrapper      | ''          |
 | `tagWrapperClasses`       | string           | CSS Classes for each tag wrapper            | ''          |
@@ -100,7 +99,7 @@ You can also put these classes in your global `.css` file if you don't want to u
 
 
 <style>
-	:global(#svelteUnstyledTagsWrapper) {
+	:global(.svelteUnstyledTagsWrapper) {
 		display: flex;
 		flex-wrap: wrap;
 	}
@@ -112,7 +111,7 @@ You can also put these classes in your global `.css` file if you don't want to u
 		border-radius: 0.375rem;
 		margin-top: 0.5rem;
 	}
-	:global(#allTagsWrapper) {
+	:global(.allTagsWrapper) {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
@@ -141,7 +140,7 @@ You can also put these classes in your global `.css` file if you don't want to u
 	:global(.tagRemoveButton:hover) {
 		outline: 2px auto;
 	}
-	:global(#tagsInput) {
+	:global(.tagsInput) {
 		margin-left: 1rem;
 		padding: 0.5rem;
 		border-bottom: 1px solid #e5e7eb;
@@ -156,51 +155,70 @@ You can also put these classes in your global `.css` file if you don't want to u
 This is an example of the HTML markup that's created.
 
 ```html
-<div id="svelteUnstyledTagsWrapper">
+<div
+	class="svelteUnstyledTagsWrapper"
+	id="greqxjp6z4"
+>
 	<label
-		for="tagsInput"
+		for="tagsInput-greqxjp6z4"
 		class="screen-reader-only"
 		>Tags</label
 	>
 	<div class="tagsInputWrapper">
 		<div
-			id="allTagsWrapper"
+			class="allTagsWrapper"
 			role="list"
 		>
 			<div
 				class="tagWrapper"
 				role="listitem"
-				data-tag="hi"
+				data-tag="tag"
 				data-index="0"
 			>
 				<span
 					class="tag"
-					id="hi-0"
-					>hi</span
+					data-tag-id="tag-0"
+				>
+					tag
+				</span>
+				<button class="tagRemoveButton">✕</button>
+			</div>
+			<div
+				class="tagWrapper"
+				role="listitem"
+				data-tag="another tag"
+				data-index="1"
+			>
+				<span
+					class="tag"
+					data-tag-id="another tag-1"
+					>another tag</span
 				>
 				<button class="tagRemoveButton">✕</button>
 			</div>
 			<div
 				class="tagWrapper"
 				role="listitem"
-				data-tag="there"
-				data-index="1"
+				data-tag="and another"
+				data-index="2"
 			>
 				<span
 					class="tag"
-					id="there-1"
-					>there</span
+					data-tag-id="and another-2"
+					>and another</span
 				>
 				<button class="tagRemoveButton">✕</button>
 			</div>
 		</div>
 		<input
-			id="tagsInput"
+			id="tagsInput-greqxjp6z4"
+			class="tagsInput"
 			type="text"
 			placeholder="Add a tag"
 		/>
 	</div>
 </div>
+
 
 ```
 

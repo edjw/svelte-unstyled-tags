@@ -34,6 +34,9 @@
 	export let tags: TagsArray;
 	const dispatch = createEventDispatcher<{ tags: TagsArray; input: TagsArray }>();
 
+	// Create a unique-enough id to assign to the component
+	const id = Number(new Date().getTime() + '000').toString(36);
+
 	function addTag(value: string) {
 		if (value && (!onlyUnique || !tags.includes(value)) && tags.length < maximumTags) {
 			tags = [...tags, value];
@@ -60,24 +63,24 @@
 	}
 </script>
 
-<div id="svelteUnstyledTagsWrapper" class={componentWrapperClasses}>
+<div class={`svelteUnstyledTagsWrapper ${componentWrapperClasses}`} {id}>
 	<label
-		for="tagsInput"
+		for={`tagsInput-${id}`}
 		class={showLabel ? `${labelClasses}` : `${labelClasses} screen-reader-only`}
 	>
 		{labelText}
 	</label>
 
 	<div class={`tagsInputWrapper ${tagsInputWrapperClasses}`}>
-		<div id="allTagsWrapper" class={allTagsWrapperClasses} role="list">
-			{#each tags as tag, index}
+		<div class={`allTagsWrapper ${allTagsWrapperClasses}`} role="list">
+			{#each tags as tag, index (`${id}-${index}`)}
 				<div
 					class={`tagWrapper ${tagWrapperClasses}`}
 					role="listitem"
 					data-tag={`${tag}`}
 					data-index={index}
 				>
-					<span class={`tag ${tagClasses}`} id={`${tag}-${index}`}>{tag}</span>
+					<span class={`tag ${tagClasses}`} data-tag-id={`${tag}-${index}`}>{tag}</span>
 					<button
 						class={`tagRemoveButton ${tagRemoveButtonClasses}`}
 						on:click={() => removeTag(index)}>{removeTagButtonText}</button
@@ -87,8 +90,8 @@
 		</div>
 
 		<input
-			id="tagsInput"
-			class={inputClasses}
+			id={`tagsInput-${id}`}
+			class={`tagsInput ${inputClasses}`}
 			bind:value={inputValue}
 			on:keydown={addTagFromInput}
 			type="text"
@@ -96,8 +99,7 @@
 		/>
 		{#if showAddButton}
 			<button
-				id="addTagButton"
-				class={addButtonClasses}
+				class={`addTagButton ${addButtonClasses}`}
 				on:click={() => {
 					addTag(inputValue);
 					inputValue = '';
@@ -109,8 +111,7 @@
 
 		{#if showClearAllButton}
 			<button
-				id="clearAllTagsButton"
-				class={clearAllButtonClasses}
+				class={`clearAllTagsButton ${clearAllButtonClasses}`}
 				on:click={() => {
 					removeAllTags();
 				}}
