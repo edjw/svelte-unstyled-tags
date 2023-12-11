@@ -1,6 +1,6 @@
 {
 	"name": "svelte-unstyled-tags",
-	"description": "A unstyled Svelte component for handling tags input in forms with customisable features (add, remove, clear tags) and styling options.",
+	"description": "An unstyled Svelte component for handling tags input with customisable features (add, remove, clear tags) and styling options.",
 	"license": "MIT",
 	"keywords": [
 		"svelte",
