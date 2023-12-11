@@ -34,8 +34,12 @@
 	export let tags: TagsArray;
 	const dispatch = createEventDispatcher<{ tags: TagsArray; input: TagsArray }>();
 
-	// Create a unique-enough id to assign to the component
-	const id = Number(new Date().getTime() + '000').toString(36);
+	// Create a unique-enough ID to assign to the component
+	function createUniqueEnoughID() {
+		return Math.random().toString(36).substring(2) + Date.now().toString(36);
+	}
+
+	const id = createUniqueEnoughID();
 
 	function addTag(value: string) {
 		if (value && (!onlyUnique || !tags.includes(value)) && tags.length < maximumTags) {
