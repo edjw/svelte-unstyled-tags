@@ -4,8 +4,6 @@ Svelte Unstyled Tags is a customisable Tags Input Component for Svelte.
 
 Requires Svelte 5.
 
-It is in development and things might change like class names.
-
 ## Installation
 
 ```bash
