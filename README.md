@@ -50,6 +50,7 @@ The following are the customisable options that come with the package:
 | `showClearAllButton`         | boolean          | Show a clear all button                              | false       |
 | `showClearAllButtonText`     | string           | Text for the clear all button                        | 'Clear all' |
 | `removeTagButtonText`        | string           | Text for the tag remove button                       | 'x'         |
+| `removeTagButtonAriaLabelPrefix` | string       | Prefix used to build each remove button's accessible name (`{prefix} {tag}`) | 'Remove tag' |
 | `componentWrapperClasses`    | string           | CSS Classes for component wrapper                    | ''          |
 | `allTagsWrapperClasses`      | string           | CSS Classes for the 'all tags' wrapper               | ''          |
 | `tagWrapperClasses`          | string           | CSS Classes for each tag wrapper                     | ''          |

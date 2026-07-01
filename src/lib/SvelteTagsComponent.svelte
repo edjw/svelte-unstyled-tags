@@ -4,6 +4,7 @@
 	// Parameters
 	export let inputPlaceholderText: string = 'Add a tag';
 	export let removeTagButtonText: string = '✕';
+	export let removeTagButtonAriaLabelPrefix: string = 'Remove tag';
 	export let addTagKey: string = 'Enter';
 	export let showAddButton: boolean = false;
 	export let addButtonText: string = 'Add Tag';
@@ -89,6 +90,7 @@
 					<span class={`tag ${tagClasses}`} data-tag-id={`${tag}-${index}`}>{tag}</span>
 					<button
 						class={`removeTagButton ${removeTagButtonClasses}`}
+						aria-label={`${removeTagButtonAriaLabelPrefix} ${tag}`}
 						on:click={() => removeTag(index)}>{removeTagButtonText}</button
 					>
 				</div>
