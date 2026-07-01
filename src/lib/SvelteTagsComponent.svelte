@@ -41,7 +41,7 @@
 
 		inputPlaceholderText = 'Add a tag',
 		removeTagButtonText = '✕',
-		removeTagButtonAriaLabelPrefix = 'Remove tag',
+		removeTagButtonAriaLabelPrefix = 'Remove',
 		addTagKey = 'Enter',
 		showAddButton = false,
 		addButtonText = 'Add Tag',

@@ -36,32 +36,32 @@ You can pass tags array to component with `bind:tags` and pass your configuratio
 
 The following are the customisable options that come with the package:
 
-| Parameter                        | Type             | Description                                                                  | Default      |
-| -------------------------------- | ---------------- | ---------------------------------------------------------------------------- | ------------ |
-| `tags`                           | array of strings | The array to store the tag values                                            | [ ]          |
-| `maximumTags`                    | number           | Maximum number of tags                                                       | Infinity     |
-| `onlyUnique`                     | boolean          | Only allow unique tags                                                       | false        |
-| `inputPlaceholderText`           | string           | Placeholder text for the tag input field                                     | 'Add a tag'  |
-| `addTagKey`                      | string           | The keyboard key that triggers the addition of a tag                         | 'Enter'      |
-| `showLabel`                      | boolean          | Show label for the input                                                     | false        |
-| `labelText`                      | string           | Text for the label                                                           | 'Tags'       |
-| `showAddButton`                  | boolean          | Show an add button                                                           | false        |
-| `addButtonText`                  | string           | Text for the add button                                                      | 'Add Tag'    |
-| `showClearAllButton`             | boolean          | Show a clear all button                                                      | false        |
-| `showClearAllButtonText`         | string           | Text for the clear all button                                                | 'Clear all'  |
-| `removeTagButtonText`            | string           | Text for the tag remove button                                               | 'x'          |
-| `removeTagButtonAriaLabelPrefix` | string           | Prefix used to build each remove button's accessible name (`{prefix} {tag}`) | 'Remove tag' |
-| `componentWrapperClasses`        | string           | CSS Classes for component wrapper                                            | ''           |
-| `allTagsWrapperClasses`          | string           | CSS Classes for the 'all tags' wrapper                                       | ''           |
-| `tagWrapperClasses`              | string           | CSS Classes for each tag wrapper                                             | ''           |
-| `tagClasses`                     | string           | CSS Classes for each tag                                                     | ''           |
-| `inputClasses`                   | string           | CSS Classes for the input                                                    | ''           |
-| `inputButtonsSectionClasses`     | string           | CSS Classes for the input buttons section                                    | ''           |
-| `labelClasses`                   | string           | CSS Classes for label                                                        | ''           |
-| `removeTagButtonClasses`         | string           | CSS Classes for the tag remove buttons                                       | ''           |
-| `addButtonClasses`               | string           | CSS Classes for the add button                                               | ''           |
-| `clearAllButtonClasses`          | string           | CSS Classes for the clear all button                                         | ''           |
-| `buttonsSectionClasses`          | string           | CSS Classes for the buttons section                                          | ''           |
+| Parameter                        | Type             | Description                                                                  | Default     |
+| -------------------------------- | ---------------- | ---------------------------------------------------------------------------- | ----------- |
+| `tags`                           | array of strings | The array to store the tag values                                            | [ ]         |
+| `maximumTags`                    | number           | Maximum number of tags                                                       | Infinity    |
+| `onlyUnique`                     | boolean          | Only allow unique tags                                                       | false       |
+| `inputPlaceholderText`           | string           | Placeholder text for the tag input field                                     | 'Add a tag' |
+| `addTagKey`                      | string           | The keyboard key that triggers the addition of a tag                         | 'Enter'     |
+| `showLabel`                      | boolean          | Show label for the input                                                     | false       |
+| `labelText`                      | string           | Text for the label                                                           | 'Tags'      |
+| `showAddButton`                  | boolean          | Show an add button                                                           | false       |
+| `addButtonText`                  | string           | Text for the add button                                                      | 'Add Tag'   |
+| `showClearAllButton`             | boolean          | Show a clear all button                                                      | false       |
+| `showClearAllButtonText`         | string           | Text for the clear all button                                                | 'Clear all' |
+| `removeTagButtonText`            | string           | Text for the tag remove button                                               | 'x'         |
+| `removeTagButtonAriaLabelPrefix` | string           | Prefix used to build each remove button's accessible name (`{prefix} {tag}`) | 'Remove'    |
+| `componentWrapperClasses`        | string           | CSS Classes for component wrapper                                            | ''          |
+| `allTagsWrapperClasses`          | string           | CSS Classes for the 'all tags' wrapper                                       | ''          |
+| `tagWrapperClasses`              | string           | CSS Classes for each tag wrapper                                             | ''          |
+| `tagClasses`                     | string           | CSS Classes for each tag                                                     | ''          |
+| `inputClasses`                   | string           | CSS Classes for the input                                                    | ''          |
+| `inputButtonsSectionClasses`     | string           | CSS Classes for the input buttons section                                    | ''          |
+| `labelClasses`                   | string           | CSS Classes for label                                                        | ''          |
+| `removeTagButtonClasses`         | string           | CSS Classes for the tag remove buttons                                       | ''          |
+| `addButtonClasses`               | string           | CSS Classes for the add button                                               | ''          |
+| `clearAllButtonClasses`          | string           | CSS Classes for the clear all button                                         | ''          |
+| `buttonsSectionClasses`          | string           | CSS Classes for the buttons section                                          | ''          |
 
 ## Listen for changes to tags
 
@@ -163,15 +163,15 @@ This is an example of the HTML markup that's created.
 		<div class="allTagsWrapper" role="list">
 			<div class="tagWrapper" role="listitem" data-tag="tag" data-index="0">
 				<span class="tag" data-tag-id="tag-0">tag</span>
-				<button class="removeTagButton" aria-label="Remove tag tag">✕</button>
+				<button class="removeTagButton" aria-label="Remove tag">✕</button>
 			</div>
 			<div class="tagWrapper" role="listitem" data-tag="another tag" data-index="1">
 				<span class="tag" data-tag-id="another tag-1">another tag</span>
-				<button class="removeTagButton" aria-label="Remove tag another tag">✕</button>
+				<button class="removeTagButton" aria-label="Remove another tag">✕</button>
 			</div>
 			<div class="tagWrapper" role="listitem" data-tag="and another" data-index="2">
 				<span class="tag" data-tag-id="and another-2">and another</span>
-				<button class="removeTagButton" aria-label="Remove tag and another">✕</button>
+				<button class="removeTagButton" aria-label="Remove and another">✕</button>
 			</div>
 		</div>
 		<div class="inputButtonsSection">

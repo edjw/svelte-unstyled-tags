@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1]
+
+### Changed
+
+- Changed the default remove button `aria-label` from "Remove tag {tag}" to
+  "Remove {tag}" so screen reader output is clearer and avoids unnecessary
+  jargon.
+
 ## [0.1.0]
 
 ### Changed
