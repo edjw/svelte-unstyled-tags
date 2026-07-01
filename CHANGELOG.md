@@ -20,5 +20,5 @@
 
 - `removeTagButtonAriaLabelPrefix` prop (default `'Remove tag'`). Each remove
   button now gets an `aria-label` built from this prefix and the tag's text
-  (e.g. "Remove tag urgent"), so screen reader users can tell tags apart —
-  previously every button announced only "✕".
+  (e.g. "Remove tag urgent"), so screen reader users can tell tags apart.
+  Previously every button announced only "✕".
