@@ -42,7 +42,7 @@
 		"!dist/**/*.spec.*"
 	],
 	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"svelte": "^5.20.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",

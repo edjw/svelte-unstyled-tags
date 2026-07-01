@@ -2,7 +2,7 @@
 
 Svelte Unstyled Tags is a customisable Tags Input Component for Svelte.
 
-Requires Svelte 5.
+Requires Svelte 5.20 or later (uses `$props.id()`).
 
 ## Installation
 
