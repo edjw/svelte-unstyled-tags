@@ -1,53 +1,80 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-
-	// Parameters
-	export let inputPlaceholderText: string = 'Add a tag';
-	export let removeTagButtonText: string = '✕';
-	export let removeTagButtonAriaLabelPrefix: string = 'Remove tag';
-	export let addTagKey: string = 'Enter';
-	export let showAddButton: boolean = false;
-	export let addButtonText: string = 'Add Tag';
-	export let showClearAllButton: boolean = false;
-	export let showClearAllButtonText: string = 'Clear all';
-
-	export let onlyUnique: boolean = false;
-	export let showLabel: boolean = false;
-	export let labelText: string = 'Tags';
-	export let maximumTags: number = Infinity;
-
-	// Let user provide classes for external styling
-	export let componentWrapperClasses: string = '';
-	export let allTagsWrapperClasses: string = '';
-	export let tagsInputWrapperClasses: string = '';
-	export let tagWrapperClasses: string = '';
-	export let tagClasses: string = '';
-	export let labelClasses: string = '';
-	export let removeTagButtonClasses: string = '';
-	export let inputClasses: string = '';
-	export let addButtonClasses: string = '';
-	export let clearAllButtonClasses: string = '';
-	export let inputButtonsSectionClasses: string = '';
-	export let buttonsSectionClasses: string = '';
-
-	let inputValue: string = '';
-
 	type TagsArray = string[];
 
-	export let tags: TagsArray;
-	const dispatch = createEventDispatcher<{ tags: TagsArray; input: TagsArray }>();
+	interface Props {
+		tags?: TagsArray;
+		oninput?: (tags: TagsArray) => void;
 
-	// Create a unique-enough ID to assign to the component
-	function createUniqueEnoughID() {
-		return Math.random().toString(36).substring(2) + Date.now().toString(36);
+		// Parameters
+		inputPlaceholderText?: string;
+		removeTagButtonText?: string;
+		removeTagButtonAriaLabelPrefix?: string;
+		addTagKey?: string;
+		showAddButton?: boolean;
+		addButtonText?: string;
+		showClearAllButton?: boolean;
+		showClearAllButtonText?: string;
+
+		onlyUnique?: boolean;
+		showLabel?: boolean;
+		labelText?: string;
+		maximumTags?: number;
+
+		// Let user provide classes for external styling
+		componentWrapperClasses?: string;
+		allTagsWrapperClasses?: string;
+		tagsInputWrapperClasses?: string;
+		tagWrapperClasses?: string;
+		tagClasses?: string;
+		labelClasses?: string;
+		removeTagButtonClasses?: string;
+		inputClasses?: string;
+		addButtonClasses?: string;
+		clearAllButtonClasses?: string;
+		inputButtonsSectionClasses?: string;
+		buttonsSectionClasses?: string;
 	}
 
-	const id = createUniqueEnoughID();
+	let {
+		tags = $bindable([]),
+		oninput,
+
+		inputPlaceholderText = 'Add a tag',
+		removeTagButtonText = '✕',
+		removeTagButtonAriaLabelPrefix = 'Remove tag',
+		addTagKey = 'Enter',
+		showAddButton = false,
+		addButtonText = 'Add Tag',
+		showClearAllButton = false,
+		showClearAllButtonText = 'Clear all',
+
+		onlyUnique = false,
+		showLabel = false,
+		labelText = 'Tags',
+		maximumTags = Infinity,
+
+		componentWrapperClasses = '',
+		allTagsWrapperClasses = '',
+		tagsInputWrapperClasses = '',
+		tagWrapperClasses = '',
+		tagClasses = '',
+		labelClasses = '',
+		removeTagButtonClasses = '',
+		inputClasses = '',
+		addButtonClasses = '',
+		clearAllButtonClasses = '',
+		inputButtonsSectionClasses = '',
+		buttonsSectionClasses = ''
+	}: Props = $props();
+
+	let inputValue: string = $state('');
+
+	const id = $props.id();
 
 	function addTag(value: string) {
 		if (value && (!onlyUnique || !tags.includes(value)) && tags.length < maximumTags) {
 			tags = [...tags, value];
-			dispatch('input', tags);
+			oninput?.(tags);
 		}
 	}
 
@@ -55,18 +82,18 @@
 		const target = event.target as HTMLInputElement | null;
 		if (target && event.key === addTagKey) {
 			addTag(target.value);
-			target.value = '';
+			inputValue = '';
 		}
 	}
 
 	function removeTag(index: number) {
 		tags = [...tags.slice(0, index), ...tags.slice(index + 1)];
-		dispatch('input', tags);
+		oninput?.(tags);
 	}
 
 	function removeAllTags() {
 		tags = [];
-		dispatch('input', tags);
+		oninput?.(tags);
 	}
 </script>
 
@@ -91,7 +118,7 @@
 					<button
 						class={`removeTagButton ${removeTagButtonClasses}`}
 						aria-label={`${removeTagButtonAriaLabelPrefix} ${tag}`}
-						on:click={() => removeTag(index)}>{removeTagButtonText}</button
+						onclick={() => removeTag(index)}>{removeTagButtonText}</button
 					>
 				</div>
 			{/each}
@@ -101,7 +128,7 @@
 				id={`tagsInput-${id}`}
 				class={`tagsInput ${inputClasses}`}
 				bind:value={inputValue}
-				on:keydown={addTagFromInput}
+				onkeydown={addTagFromInput}
 				type="text"
 				placeholder={inputPlaceholderText}
 			/>
@@ -110,7 +137,7 @@
 					{#if showAddButton}
 						<button
 							class={`addTagButton ${addButtonClasses}`}
-							on:click={() => {
+							onclick={() => {
 								addTag(inputValue);
 								inputValue = '';
 							}}
@@ -121,7 +148,7 @@
 					{#if showClearAllButton}
 						<button
 							class={`clearAllTagsButton ${clearAllButtonClasses}`}
-							on:click={() => {
+							onclick={() => {
 								removeAllTags();
 							}}
 						>
